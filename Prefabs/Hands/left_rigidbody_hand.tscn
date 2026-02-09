@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cycowi2r7tcex"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lwscp"]
+size = Vector3(0.15, 0.15, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4qrl"]
+size = Vector3(0.15, 0.15, 0.15)
+
+[node name="LeftRigidbodyHand" type="RigidBody3D" unique_id=1614485914]
+mass = 0.2
+gravity_scale = 0.0
+linear_damp = 50.0
+angular_damp = 50.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=229765995]
+mesh = SubResource("BoxMesh_lwscp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682085336]
+shape = SubResource("BoxShape3D_j4qrl")
