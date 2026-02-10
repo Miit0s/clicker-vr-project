@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bh816lrjve6pl" path="res://Prefabs/Hands/left_preview_hand.tscn" id="2_lttqn"]
 [ext_resource type="PackedScene" uid="uid://bwoade3owmwve" path="res://Prefabs/Hands/right_rigidbody_hand.tscn" id="3_4kvl3"]
 [ext_resource type="PackedScene" uid="uid://dkwyt1daahoyg" path="res://Prefabs/Hands/right_preview_hand.tscn" id="4_lee88"]
+[ext_resource type="PackedScene" uid="uid://d38ch86f3e250" path="res://Prefabs/Buttons/basic_button.tscn" id="7_1d8q1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j4qrl"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -52,3 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 
 [node name="RightRigidbodyHand" parent="Player" unique_id=1571168576 instance=ExtResource("3_4kvl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+
+[node name="BasicButton" parent="." unique_id=212875538 instance=ExtResource("7_1d8q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1555928, -0.39344716)
