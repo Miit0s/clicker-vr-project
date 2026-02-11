@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://7030fxe0rjcm"]
+
+[ext_resource type="Texture2D" uid="uid://cyiycdyb1gd5a" path="res://Sprite/circle_with_hole.png" id="1_t6rd4"]
+[ext_resource type="Script" uid="uid://daxtcxljuyp64" path="res://Script/wave_effect.gd" id="2_j5q3m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp0hd"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("1_t6rd4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xumsq"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_vp0hd")
+size = Vector2(0.15, 0.15)
+
+[node name="WaveEffect" type="MeshInstance3D" unique_id=1478738454]
+mesh = SubResource("PlaneMesh_xumsq")
+script = ExtResource("2_j5q3m")

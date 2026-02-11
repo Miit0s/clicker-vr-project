@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cepgqeofdw7ee"]
+
+[ext_resource type="Script" uid="uid://bheycv2u8frim" path="res://Script/value_added_effect.gd" id="1_vjhdc"]
+
+[node name="ValueAddedEffect" type="Label3D" unique_id=163210712]
+pixel_size = 0.0001
+text = "+1"
+font_size = 200
+outline_size = 40
+script = ExtResource("1_vjhdc")

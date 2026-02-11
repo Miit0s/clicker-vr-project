@@ -4,6 +4,8 @@ signal focus_lost
 signal focus_gained
 signal pose_recentered
 
+@onready var player: Player = $Player
+
 @export var maximum_refresh_rate : int = 144
 
 var xr_interface : OpenXRInterface
@@ -97,4 +99,7 @@ func _on_openxr_stopping() -> void:
 func _on_openxr_pose_recentered() -> void:
 	# User recentered view, we have to react to this by recentering the view.
 	# This is game implementation dependent.
+	
+	player.global_position = Vector3.ZERO
+	
 	emit_signal("pose_recentered")

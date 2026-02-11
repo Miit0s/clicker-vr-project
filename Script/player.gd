@@ -1,4 +1,5 @@
 extends XROrigin3D
+class_name Player
 
 @onready var left_rigidbody_hand: RigidBody3D = $LeftRigidbodyHand
 @onready var right_rigidbody_hand: RigidBody3D = $RightRigidbodyHand
