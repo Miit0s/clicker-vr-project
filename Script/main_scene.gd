@@ -4,8 +4,6 @@ signal focus_lost
 signal focus_gained
 signal pose_recentered
 
-@onready var player: Player = $Player
-
 @export var maximum_refresh_rate : int = 144
 
 var xr_interface : OpenXRInterface

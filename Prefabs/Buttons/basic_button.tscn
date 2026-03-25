@@ -67,6 +67,8 @@ shape = SubResource("ConcavePolygonShape3D_xbn4o")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1550739449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825, 0)
+collision_layer = 5
+collision_mask = 5
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
