@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://db5lgi4f45mdg"]
+
+[ext_resource type="PackedScene" uid="uid://b1xmrj7ctkkip" path="res://Models/HumanoidHand/LeftHandHumanoid.gltf" id="1_fweyt"]
+[ext_resource type="Material" uid="uid://001rj0kkakd" path="res://Materials/hand_preview_material.tres" id="1_jp5jk"]
+
+[node name="LeftPreviewTrackingHand" type="XRNode3D" unique_id=1996062170]
+tracker = &"/user/hand_tracker/left"
+show_when_tracked = true
+
+[node name="LeftHandHumanoid2" parent="." unique_id=1164762405 instance=ExtResource("1_fweyt")]
+
+[node name="LeftHandHumanoidMesh" parent="LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" parent_id_path=PackedInt32Array(1164762405, 291572782) index="0" unique_id=223773273]
+material_override = ExtResource("1_jp5jk")
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" parent_id_path=PackedInt32Array(1164762405, 291572782) index="1" unique_id=428082892]
+
+[editable path="LeftHandHumanoid2"]

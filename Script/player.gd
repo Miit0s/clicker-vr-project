@@ -3,7 +3,7 @@ extends CharacterBody3D
 const SPEED = 1.0
 const JUMP_VELOCITY = 4.5
 
-@onready var left_hand: XRController3D = $XROrigin3D/LeftHand
+@onready var left_hand: XRController3D = $XROrigin3D/LeftPreviewHand
 @onready var xr_camera_3d: XRCamera3D = $XROrigin3D/XRCamera3D
 
 func _physics_process(delta: float) -> void:

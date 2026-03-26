@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bh816lrjve6pl"]
+
+[ext_resource type="Material" uid="uid://001rj0kkakd" path="res://Materials/hand_preview_material.tres" id="1_076k2"]
+[ext_resource type="PackedScene" uid="uid://cv0mvagykkoph" path="res://Models/MetaControllerModel/MetaQuestTouchPlus_Left.fbx" id="1_rrvpm"]
+
+[node name="LeftHand" type="XRController3D" unique_id=1932645890]
+tracker = &"left_hand"
+show_when_tracked = true
+
+[node name="MetaQuestTouchPlus_Left" parent="." unique_id=1113790762 instance=ExtResource("1_rrvpm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="left_laser_begin" parent="MetaQuestTouchPlus_Left/RootNode2/Skeleton3D" parent_id_path=PackedInt32Array(1113790762, 30897519) index="0" unique_id=783812757]
+bone_idx = 0
+
+[node name="oculus_controller_l_MeshX" parent="MetaQuestTouchPlus_Left/RootNode2/Skeleton3D" parent_id_path=PackedInt32Array(1113790762, 30897519) index="1" unique_id=2132829322]
+material_override = ExtResource("1_076k2")
+
+[node name="left_batteryIndicatorQuad_MeshX" parent="MetaQuestTouchPlus_Left/RootNode2/Skeleton3D" parent_id_path=PackedInt32Array(1113790762, 30897519) index="2" unique_id=10749809]
+visible = false
+
+[editable path="MetaQuestTouchPlus_Left"]

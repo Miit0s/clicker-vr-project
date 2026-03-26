@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bholba36i3h5j"]
+
+[ext_resource type="PackedScene" uid="uid://6uq6nlhhdjdh" path="res://Models/HumanoidHand/RightHandHumanoid.gltf" id="1_aaibh"]
+[ext_resource type="Script" uid="uid://hp0cm85kxqlj" path="res://Script/rigidbody_controller_hand.gd" id="1_s5ewt"]
+
+[node name="RightRigidbodyHand" type="RigidBody3D" unique_id=1571168576]
+collision_layer = 4
+collision_mask = 5
+mass = 0.2
+gravity_scale = 0.0
+linear_damp = 50.0
+angular_damp = 50.0
+script = ExtResource("1_s5ewt")
+
+[node name="RightHandHumanoid2" parent="." unique_id=1134308400 instance=ExtResource("1_aaibh")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHandHumanoid2/RightHandHumanoid/Skeleton3D" parent_id_path=PackedInt32Array(1134308400, 683130045) index="1" unique_id=1871589624]
+hand_tracker = &"/user/hand_tracker/right"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+
+[editable path="RightHandHumanoid2"]

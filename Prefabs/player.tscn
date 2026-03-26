@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bxbwu3q8tm612" path="res://Script/player.gd" id="1_hck1p"]
 [ext_resource type="Script" uid="uid://qp3k42ncwsu0" path="res://Script/xr_origin_3d.gd" id="2_juxdh"]
-[ext_resource type="PackedScene" uid="uid://bh816lrjve6pl" path="res://Prefabs/Hands/left_preview_hand.tscn" id="3_4qbli"]
-[ext_resource type="PackedScene" uid="uid://dkwyt1daahoyg" path="res://Prefabs/Hands/right_preview_hand.tscn" id="4_08u7w"]
-[ext_resource type="PackedScene" uid="uid://cycowi2r7tcex" path="res://Prefabs/Hands/left_rigidbody_hand.tscn" id="5_kgmex"]
-[ext_resource type="PackedScene" uid="uid://bwoade3owmwve" path="res://Prefabs/Hands/right_rigidbody_hand.tscn" id="6_2xbkd"]
+[ext_resource type="PackedScene" uid="uid://bh816lrjve6pl" path="res://Prefabs/Hands/ControllerHand/left_preview_controller_hand.tscn" id="3_4qbli"]
+[ext_resource type="PackedScene" uid="uid://dkwyt1daahoyg" path="res://Prefabs/Hands/ControllerHand/right_preview_controller_hand.tscn" id="4_08u7w"]
+[ext_resource type="PackedScene" uid="uid://cycowi2r7tcex" path="res://Prefabs/Hands/ControllerHand/left_rigidbody_controller_hand.tscn" id="5_kgmex"]
+[ext_resource type="PackedScene" uid="uid://bwoade3owmwve" path="res://Prefabs/Hands/ControllerHand/right_rigidbody_tracking_hand.tscn" id="6_2xbkd"]
+[ext_resource type="PackedScene" uid="uid://db5lgi4f45mdg" path="res://Prefabs/Hands/TrackingHand/left_preview_tracking_hand.tscn" id="7_4qbli"]
+[ext_resource type="PackedScene" uid="uid://dtcwcdbx210ib" path="res://Prefabs/Hands/TrackingHand/right_preview_tracking_hand.tscn" id="8_08u7w"]
+[ext_resource type="PackedScene" uid="uid://c5bxrdv6i34f2" path="res://Prefabs/Hands/TrackingHand/left_rigidbody_tracking_hand.tscn" id="9_kgmex"]
+[ext_resource type="PackedScene" uid="uid://bholba36i3h5j" path="res://Prefabs/Hands/TrackingHand/right_rigidbody_controller_hand.tscn" id="10_2xbkd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1d8q1"]
 
@@ -23,24 +27,35 @@ script = ExtResource("2_juxdh")
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=881874966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="LeftHand" type="XRController3D" parent="XROrigin3D" unique_id=812613721]
+[node name="LeftPreviewHand" parent="XROrigin3D" unique_id=1803239198 instance=ExtResource("3_4qbli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-tracker = &"left_hand"
+show_when_tracked = false
 
-[node name="LeftPreviewHand" parent="XROrigin3D/LeftHand" unique_id=1803239198 instance=ExtResource("3_4qbli")]
-
-[node name="RightHand" type="XRController3D" parent="XROrigin3D" unique_id=923866783]
+[node name="RightPreviewHand" parent="XROrigin3D" unique_id=552081440 instance=ExtResource("4_08u7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"right_hand"
-
-[node name="RightPreviewHand" parent="XROrigin3D/RightHand" unique_id=552081440 instance=ExtResource("4_08u7w")]
+show_when_tracked = false
 
 [node name="LeftRigidbodyHand" parent="XROrigin3D" unique_id=1614485914 instance=ExtResource("5_kgmex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-collision_layer = 4
-collision_mask = 5
 
 [node name="RightRigidbodyHand" parent="XROrigin3D" unique_id=1571168576 instance=ExtResource("6_2xbkd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-collision_layer = 4
-collision_mask = 5
+
+[node name="LeftPreviewTrackingHand" parent="XROrigin3D" unique_id=1996062170 instance=ExtResource("7_4qbli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+visible = false
+
+[node name="RightPreviewTrackingHand" parent="XROrigin3D" unique_id=1323838775 instance=ExtResource("8_08u7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+visible = false
+
+[node name="LeftTrackedRigidbodyHand" parent="XROrigin3D" unique_id=963629546 instance=ExtResource("9_kgmex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+visible = false
+
+[node name="RightTrackedRigidbodyHand" parent="XROrigin3D" unique_id=419436407 instance=ExtResource("10_2xbkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+visible = false
+
+[connection signal="tracking_changed" from="XROrigin3D/LeftPreviewTrackingHand" to="XROrigin3D" method="_on_left_preview_tracking_hand_tracking_changed"]
+[connection signal="tracking_changed" from="XROrigin3D/RightPreviewTrackingHand" to="XROrigin3D" method="_on_right_preview_tracking_hand_tracking_changed"]

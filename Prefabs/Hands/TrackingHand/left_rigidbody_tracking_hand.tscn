@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c5bxrdv6i34f2"]
+
+[ext_resource type="PackedScene" uid="uid://b1xmrj7ctkkip" path="res://Models/HumanoidHand/LeftHandHumanoid.gltf" id="1_2w3cu"]
+[ext_resource type="Script" uid="uid://hp0cm85kxqlj" path="res://Script/rigidbody_controller_hand.gd" id="1_s7r0v"]
+
+[node name="LeftRigidbodyHand" type="RigidBody3D" unique_id=1614485914]
+collision_layer = 4
+collision_mask = 5
+mass = 0.2
+gravity_scale = 0.0
+linear_damp = 50.0
+angular_damp = 50.0
+script = ExtResource("1_s7r0v")
+
+[node name="LeftHandHumanoid2" parent="." unique_id=208441778 instance=ExtResource("1_2w3cu")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" parent_id_path=PackedInt32Array(208441778, 291572782) index="1" unique_id=1600845360]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+
+[editable path="LeftHandHumanoid2"]

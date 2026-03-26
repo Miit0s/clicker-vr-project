@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b2fscccjuga44"]
+
+[ext_resource type="Texture2D" uid="uid://d4kgb2jbggmx" path="res://Texture/MetaQuestController/MetaQuestTouchPlus_right_BaseColor.png" id="1_dxbrk"]
+[ext_resource type="Texture2D" uid="uid://drsimphmp14mp" path="res://Texture/MetaQuestController/MetaQuestTouchPlus_ORM.png" id="2_281tj"]
+[ext_resource type="Texture2D" uid="uid://urxfw17vc2wc" path="res://Texture/MetaQuestController/MetaQuestTouchPlus_Normals.png" id="3_covrq"]
+
+[resource]
+albedo_texture = ExtResource("1_dxbrk")
+metallic = 1.0
+metallic_texture = ExtResource("2_281tj")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_281tj")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_covrq")
+ao_enabled = true
+ao_texture = ExtResource("2_281tj")
