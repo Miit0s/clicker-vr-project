@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dkwyt1daahoyg" path="res://Prefabs/Hands/ControllerHand/right_preview_controller_hand.tscn" id="4_08u7w"]
 [ext_resource type="PackedScene" uid="uid://cycowi2r7tcex" path="res://Prefabs/Hands/ControllerHand/left_rigidbody_controller_hand.tscn" id="5_kgmex"]
 [ext_resource type="PackedScene" uid="uid://bwoade3owmwve" path="res://Prefabs/Hands/ControllerHand/right_rigidbody_tracking_hand.tscn" id="6_2xbkd"]
-[ext_resource type="PackedScene" uid="uid://db5lgi4f45mdg" path="res://Prefabs/Hands/TrackingHand/left_preview_tracking_hand.tscn" id="7_4qbli"]
-[ext_resource type="PackedScene" uid="uid://dtcwcdbx210ib" path="res://Prefabs/Hands/TrackingHand/right_preview_tracking_hand.tscn" id="8_08u7w"]
 [ext_resource type="PackedScene" uid="uid://c5bxrdv6i34f2" path="res://Prefabs/Hands/TrackingHand/left_rigidbody_tracking_hand.tscn" id="9_kgmex"]
 [ext_resource type="PackedScene" uid="uid://bholba36i3h5j" path="res://Prefabs/Hands/TrackingHand/right_rigidbody_controller_hand.tscn" id="10_2xbkd"]
 
@@ -41,14 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 [node name="RightRigidbodyHand" parent="XROrigin3D" unique_id=1571168576 instance=ExtResource("6_2xbkd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 
-[node name="LeftPreviewTrackingHand" parent="XROrigin3D" unique_id=1996062170 instance=ExtResource("7_4qbli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-visible = false
-
-[node name="RightPreviewTrackingHand" parent="XROrigin3D" unique_id=1323838775 instance=ExtResource("8_08u7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-visible = false
-
 [node name="LeftTrackedRigidbodyHand" parent="XROrigin3D" unique_id=963629546 instance=ExtResource("9_kgmex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 visible = false
@@ -57,5 +47,5 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 visible = false
 
-[connection signal="tracking_changed" from="XROrigin3D/LeftPreviewTrackingHand" to="XROrigin3D" method="_on_left_preview_tracking_hand_tracking_changed"]
-[connection signal="tracking_changed" from="XROrigin3D/RightPreviewTrackingHand" to="XROrigin3D" method="_on_right_preview_tracking_hand_tracking_changed"]
+[connection signal="tracking_changed" from="XROrigin3D/LeftTrackedRigidbodyHand" to="XROrigin3D" method="_on_left_preview_tracking_hand_tracking_changed"]
+[connection signal="tracking_changed" from="XROrigin3D/RightTrackedRigidbodyHand" to="XROrigin3D" method="_on_right_preview_tracking_hand_tracking_changed"]

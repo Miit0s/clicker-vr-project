@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends Node3D
 
 @export var collision_shapes_3d: Array[CollisionShape3D]
 
