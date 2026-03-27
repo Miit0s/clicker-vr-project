@@ -36,12 +36,28 @@ show_when_tracked = false
 [node name="LeftRigidbodyHand" parent="XROrigin3D" unique_id=1614485914 instance=ExtResource("5_kgmex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 
+[node name="Label3D" type="Label3D" parent="XROrigin3D/LeftRigidbodyHand" unique_id=278314840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21638855, 0)
+pixel_size = 0.002
+billboard = 1
+text = "0"
+font_size = 70
+outline_size = 3
+
 [node name="RightRigidbodyHand" parent="XROrigin3D" unique_id=1571168576 instance=ExtResource("6_2xbkd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 
 [node name="LeftTrackedRigidbodyHand" parent="XROrigin3D" unique_id=963629546 instance=ExtResource("9_kgmex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 visible = false
+
+[node name="Label3D" type="Label3D" parent="XROrigin3D/LeftTrackedRigidbodyHand" unique_id=328530463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21638855, 0)
+pixel_size = 0.002
+billboard = 1
+text = "0"
+font_size = 70
+outline_size = 3
 
 [node name="RightTrackedRigidbodyHand" parent="XROrigin3D" unique_id=419436407 instance=ExtResource("10_2xbkd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)

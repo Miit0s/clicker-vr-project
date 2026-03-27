@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://b76th02tho45b"]
+
+[ext_resource type="Script" uid="uid://dqh4m5n7a2aag" path="res://Script/room.gd" id="1_d3jyo"]
+[ext_resource type="PackedScene" uid="uid://d38ch86f3e250" path="res://Prefabs/Buttons/basic_button.tscn" id="1_odqq8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k2afk"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_odqq8"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3jyo"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g0j8k"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7jd"]
+size = Vector3(0.05, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g8doe"]
+size = Vector3(2.2, 4, 0.05)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_odqq8"]
+size = Vector2(0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odqq8"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d3jyo"]
+material = SubResource("StandardMaterial3D_odqq8")
+size = Vector2(1, 1)
+
+[node name="Room1" type="Node3D" unique_id=1208307225 node_paths=PackedStringArray("button")]
+script = ExtResource("1_d3jyo")
+button = NodePath("BasicButton")
+
+[node name="Wall" type="Node3D" parent="." unique_id=117795170]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=838775817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
+mesh = SubResource("BoxMesh_k2afk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall" unique_id=681048494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1.5)
+mesh = SubResource("BoxMesh_odqq8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall" unique_id=1151589074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+mesh = SubResource("BoxMesh_d3jyo")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall" unique_id=708943236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
+mesh = SubResource("BoxMesh_g0j8k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1251468763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56277174, 2, -0.9882506)
+mesh = SubResource("BoxMesh_ig7jd")
+
+[node name="BasicButton" parent="." unique_id=212875538 instance=ExtResource("1_odqq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.48486996, -1.3638221)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=841130322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37744108, 2, 0.69918895)
+mesh = SubResource("BoxMesh_g8doe")
+
+[node name="Arrow" type="Node3D" parent="." unique_id=1469982657]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arrow" unique_id=129756455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+mesh = SubResource("PlaneMesh_odqq8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Arrow" unique_id=931509878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.4800105)
+mesh = SubResource("PlaneMesh_d3jyo")
+
+[connection signal="button_pressed" from="BasicButton" to="." method="_on_basic_button_button_pressed"]

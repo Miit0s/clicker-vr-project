@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dibhcc6dl5qqk"]
+
+[ext_resource type="Shader" uid="uid://c7df5lkf8goc3" path="res://Shaders/hole_shader.gdshader" id="1_ccjrd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iaios"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gvt6t"]
+noise = SubResource("FastNoiseLite_iaios")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ccjrd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gvt6t")
+shader_parameter/layers = 8
+shader_parameter/depth_amount = 1.0
+shader_parameter/fade_amount = 1.0

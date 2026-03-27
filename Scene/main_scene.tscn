@@ -2,7 +2,13 @@
 
 [ext_resource type="Script" uid="uid://83csfghqprkq" path="res://Script/main_scene.gd" id="1_j4qrl"]
 [ext_resource type="PackedScene" uid="uid://dykopor5wrlnh" path="res://Prefabs/player.tscn" id="3_06yma"]
-[ext_resource type="PackedScene" uid="uid://d38ch86f3e250" path="res://Prefabs/Buttons/basic_button.tscn" id="7_1d8q1"]
+[ext_resource type="PackedScene" uid="uid://b76th02tho45b" path="res://Scene/Room/room_1.tscn" id="4_4kvl3"]
+[ext_resource type="Script" uid="uid://sbjy8qvgfh2h" path="res://Script/map_changer.gd" id="5_lttqn"]
+[ext_resource type="PackedScene" uid="uid://c36muyu5w78bp" path="res://Scene/Room/room_2.tscn" id="6_0xtjt"]
+[ext_resource type="PackedScene" uid="uid://beog6hiljth8f" path="res://Scene/Room/room_3.tscn" id="7_g51t8"]
+[ext_resource type="PackedScene" uid="uid://cbb51gl45t1vf" path="res://Scene/Room/room_4.tscn" id="8_j1xvy"]
+[ext_resource type="PackedScene" uid="uid://bvxwqn0wf0nlr" path="res://Scene/Room/room_5.tscn" id="9_7riyq"]
+[ext_resource type="PackedScene" uid="uid://bqoujj7gopa1w" path="res://Scene/Room/room_6.tscn" id="10_k87s1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j4qrl"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,9 +42,6 @@ environment = SubResource("Environment_06yma")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="BasicButton" parent="." unique_id=212875538 instance=ExtResource("7_1d8q1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1555928, -0.39344716)
-
 [node name="Player" parent="." unique_id=1657595662 instance=ExtResource("3_06yma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.18858019)
 
@@ -49,3 +52,9 @@ mesh = SubResource("PlaneMesh_k2rys")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=964523572]
 shape = SubResource("BoxShape3D_k2rys")
+
+[node name="MapChanger" type="Node3D" parent="." unique_id=788334407 node_paths=PackedStringArray("player")]
+script = ExtResource("5_lttqn")
+maps = Array[PackedScene]([ExtResource("4_4kvl3"), ExtResource("6_0xtjt"), ExtResource("7_g51t8"), ExtResource("8_j1xvy"), ExtResource("9_7riyq"), ExtResource("10_k87s1")])
+max_click_before_change = 12
+player = NodePath("../Player")
