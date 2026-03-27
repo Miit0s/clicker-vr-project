@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dqh4m5n7a2aag" path="res://Script/room.gd" id="1_e3kt7"]
 [ext_resource type="PackedScene" uid="uid://d38ch86f3e250" path="res://Prefabs/Buttons/basic_button.tscn" id="1_ovoi7"]
+[ext_resource type="PackedScene" uid="uid://dhsa82j8ljdfk" path="res://Models/HouseProps/speaker.glb" id="3_t8b52"]
+[ext_resource type="PackedScene" uid="uid://cuv2yoiamn6ok" path="res://Models/HouseProps/toilet.glb" id="4_iujj5"]
+[ext_resource type="PackedScene" uid="uid://f8wtoqf771wq" path="res://Models/HouseProps/washer.glb" id="5_76pvl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ji0j7"]
 size = Vector3(0.05, 4, 2.2)
@@ -29,6 +32,24 @@ size = Vector3(3, 4, 0.05)
 size = Vector3(0.05, 4, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_iujj5"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iujj5"]
+size = Vector3(0.05, 4, 2.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_76pvl"]
+size = Vector3(0.05, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1ywt"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ra0ja"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uf5hf"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tqpam"]
 size = Vector3(0.05, 4, 3)
 
 [node name="Room3" type="Node3D" unique_id=1208307225 node_paths=PackedStringArray("button")]
@@ -73,5 +94,43 @@ mesh = SubResource("BoxMesh_0ujcg")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall" unique_id=2030665033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
 mesh = SubResource("BoxMesh_iujj5")
+
+[node name="toilet" parent="." unique_id=755622016 instance=ExtResource("4_iujj5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.4427285, 0, -1.4282795)
+
+[node name="washer" parent="." unique_id=1670455203 instance=ExtResource("5_76pvl")]
+transform = Transform3D(-1.8729895, 0, -0.70136285, 0, 2, 0, 0.70136285, 0, -1.8729895, 0.3031688, 0, 0.49723476)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1560302636]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=176757824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5782797, 2, 0.387577)
+shape = SubResource("BoxShape3D_iujj5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=2047166198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56277174, 2, 0.98331845)
+shape = SubResource("BoxShape3D_76pvl")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=24033465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
+shape = SubResource("BoxShape3D_g1ywt")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1001223726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1.5)
+shape = SubResource("BoxShape3D_ra0ja")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1831476950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+shape = SubResource("BoxShape3D_uf5hf")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=1181558331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
+shape = SubResource("BoxShape3D_tqpam")
+
+[node name="speaker" parent="." unique_id=494028458 instance=ExtResource("3_t8b52")]
+transform = Transform3D(1.7286199, 0, 1.0059193, 0, 2, 0, -1.0059193, 0, 1.7286199, -0.0915831, -2.3841858e-07, -1.0792639)
+
+[node name="speaker2" parent="." unique_id=481224612 instance=ExtResource("3_t8b52")]
+transform = Transform3D(1.489462, 0, 1.3347296, 0, 2, 0, -1.3347296, 0, 1.489462, -0.34017035, -2.3841858e-07, -0.86145073)
 
 [connection signal="button_pressed" from="BasicButton" to="." method="_on_basic_button_button_pressed"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqh4m5n7a2aag" path="res://Script/room.gd" id="1_2qai5"]
 [ext_resource type="PackedScene" uid="uid://d38ch86f3e250" path="res://Prefabs/Buttons/basic_button.tscn" id="1_32xj1"]
+[ext_resource type="Material" uid="uid://cqgddbnqqjwxr" path="res://Materials/hologram_material.tres" id="3_p8bac"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0r6qf"]
 size = Vector2(0.5, 2)
@@ -28,6 +29,25 @@ size = Vector3(0.05, 4, 3)
 [sub_resource type="BoxMesh" id="BoxMesh_4v3jt"]
 size = Vector3(0.05, 4, 1)
 
+[sub_resource type="SphereMesh" id="SphereMesh_b3fcr"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8bac"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3fcr"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4v3jt"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3akw"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ctp0e"]
+size = Vector3(0.05, 4, 1)
+
 [node name="Room6" type="Node3D" unique_id=1208307225 node_paths=PackedStringArray("button")]
 script = ExtResource("1_2qai5")
 button = NodePath("BasicButton")
@@ -46,6 +66,7 @@ mesh = SubResource("PlaneMesh_2qai5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=298164780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_32xj1")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall" unique_id=1236683766]
@@ -54,6 +75,7 @@ mesh = SubResource("BoxMesh_2qai5")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall" unique_id=561300195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+visible = false
 mesh = SubResource("BoxMesh_p8bac")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall" unique_id=286883428]
@@ -66,5 +88,32 @@ mesh = SubResource("BoxMesh_4v3jt")
 
 [node name="BasicButton" parent="." unique_id=212875538 instance=ExtResource("1_32xj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.48486996, 1.3984364)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=596161494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+material_override = ExtResource("3_p8bac")
+mesh = SubResource("SphereMesh_b3fcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1186693418]
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=903065679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
+shape = SubResource("BoxShape3D_p8bac")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=262024269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1.5)
+shape = SubResource("BoxShape3D_b3fcr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=864500995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+shape = SubResource("BoxShape3D_4v3jt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=872234783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
+shape = SubResource("BoxShape3D_f3akw")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1101229116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56277174, 2, 0.98331845)
+shape = SubResource("BoxShape3D_ctp0e")
 
 [connection signal="button_pressed" from="BasicButton" to="." method="_on_basic_button_button_pressed"]

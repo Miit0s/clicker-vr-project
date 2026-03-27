@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dqh4m5n7a2aag" path="res://Script/room.gd" id="1_d3jyo"]
 [ext_resource type="PackedScene" uid="uid://d38ch86f3e250" path="res://Prefabs/Buttons/basic_button.tscn" id="1_odqq8"]
+[ext_resource type="Material" uid="uid://dibhcc6dl5qqk" path="res://Materials/hole_shder_material.tres" id="3_g0j8k"]
+[ext_resource type="PackedScene" uid="uid://bxj7txe8ekiip" path="res://Models/HouseProps/loungeChair.glb" id="4_ig7jd"]
+[ext_resource type="PackedScene" uid="uid://7bs60if6hc14" path="res://Models/HouseProps/pottedPlant.glb" id="5_g8doe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_k2afk"]
 size = Vector3(3, 4, 0.05)
@@ -30,6 +33,27 @@ albedo_color = Color(0, 1, 1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_d3jyo"]
 material = SubResource("StandardMaterial3D_odqq8")
 size = Vector2(1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ig7jd"]
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8doe"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxkut"]
+size = Vector3(3, 4, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0drx3"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sd8b8"]
+size = Vector3(0.05, 4, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8y6li"]
+size = Vector3(0.05, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ug74r"]
+size = Vector3(2.2, 4, 0.05)
 
 [node name="Room1" type="Node3D" unique_id=1208307225 node_paths=PackedStringArray("button")]
 script = ExtResource("1_d3jyo")
@@ -73,5 +97,42 @@ mesh = SubResource("PlaneMesh_odqq8")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Arrow" unique_id=931509878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.4800105)
 mesh = SubResource("PlaneMesh_d3jyo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1889221520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2710111, -2.5443764)
+material_override = ExtResource("3_g0j8k")
+mesh = SubResource("PlaneMesh_ig7jd")
+
+[node name="loungeChair" parent="." unique_id=1394172111 instance=ExtResource("4_ig7jd")]
+transform = Transform3D(1.9694638, 0, 0.34815568, 0, 2, 0, -0.34815568, 0, 1.9694638, -0.31782928, 0, -0.47200266)
+
+[node name="pottedPlant" parent="." unique_id=1770156801 instance=ExtResource("5_g8doe")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1953261, 0, -1.174057)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=925344738]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1953067255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
+shape = SubResource("BoxShape3D_g8doe")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=477123096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1.5)
+shape = SubResource("BoxShape3D_kxkut")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1056681056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+shape = SubResource("BoxShape3D_0drx3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1712804954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
+shape = SubResource("BoxShape3D_sd8b8")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1844320425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56277174, 2, -0.9882506)
+shape = SubResource("BoxShape3D_8y6li")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=155841184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37744108, 2, 0.69918895)
+shape = SubResource("BoxShape3D_ug74r")
 
 [connection signal="button_pressed" from="BasicButton" to="." method="_on_basic_button_button_pressed"]

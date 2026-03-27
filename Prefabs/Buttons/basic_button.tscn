@@ -23,6 +23,7 @@ data = PackedVector3Array(-0.04045085, -0.035, -0.029389268, -0.045677274, -0.03
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xbn4o"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_w3jbo")
 top_radius = 0.04
 bottom_radius = 0.04

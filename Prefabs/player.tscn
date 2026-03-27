@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bholba36i3h5j" path="res://Prefabs/Hands/TrackingHand/right_rigidbody_controller_hand.tscn" id="10_2xbkd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1d8q1"]
+radius = 0.1
 
 [node name="Player" type="CharacterBody3D" unique_id=1657595662]
 collision_layer = 2

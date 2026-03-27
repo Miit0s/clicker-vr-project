@@ -4,6 +4,7 @@
 
 [node name="ValueAddedEffect" type="Label3D" unique_id=163210712]
 pixel_size = 0.0001
+billboard = 1
 text = "+1"
 font_size = 200
 outline_size = 40
